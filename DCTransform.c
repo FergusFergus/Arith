@@ -416,10 +416,11 @@ int64_t DCT_calcD(float Y1, float Y2, float Y3, float Y4)
  */
 float DCT_calcY1(uint64_t a, int64_t b, int64_t c, int64_t d)
 {
+    /*
     assert(a <= 511);
     assert(b >= -15 && b <= 15);
     assert(c >= -15 && c <= 15);
-    assert(d >= -15 && d <= 15);
+    assert(d >= -15 && d <= 15); */
 
     /* Dequantize values and bound them into the correct range */
     float A = a / 511.0;
@@ -450,10 +451,11 @@ float DCT_calcY1(uint64_t a, int64_t b, int64_t c, int64_t d)
  */
 float DCT_calcY2(uint64_t a, int64_t b, int64_t c, int64_t d)
 {
+    /*
     assert(a <= 511);
     assert(b >= -15 && b <= 15);
     assert(c >= -15 && c <= 15);
-    assert(d >= -15 && d <= 15);
+    assert(d >= -15 && d <= 15); */
 
     /* Dequantize values and bound them into the correct range */
     float A = a / 511.0;
@@ -484,10 +486,11 @@ float DCT_calcY2(uint64_t a, int64_t b, int64_t c, int64_t d)
  */
 float DCT_calcY3(uint64_t a, int64_t b, int64_t c, int64_t d)
 {
+    /*
     assert(a <= 511);
     assert(b >= -15 && b <= 15);
     assert(c >= -15 && c <= 15);
-    assert(d >= -15 && d <= 15);
+    assert(d >= -15 && d <= 15); */
 
     /* Dequantize values and bound them into the correct range */
     float A = a / 511.0;
@@ -518,10 +521,11 @@ float DCT_calcY3(uint64_t a, int64_t b, int64_t c, int64_t d)
  */
 float DCT_calcY4(uint64_t a, int64_t b, int64_t c, int64_t d)
 {
+    /*
     assert(a <= 511);
     assert(b >= -15 && b <= 15);
     assert(c >= -15 && c <= 15);
-    assert(d >= -15 && d <= 15);
+    assert(d >= -15 && d <= 15); */
 
     /* Dequantize values and bound them into the correct range */
     float A = a / 511.0;

@@ -238,18 +238,19 @@ Coded_img Coded_readin(FILE * in)
         for (unsigned col = 0; col < width / 2; col++ ) {
             uint64_t * curr_word = new_image -> methods ->
                                    at(new_image -> words, col, row);
+
             *curr_word = 0;
             c = getc(in);
             assert(c != -1 && (row < height && col < width));
-            *curr_word = Bitpack_newu(*curr_word, 8, 24, (uint64_t)c);
+            *curr_word = Bitpack_newu(*curr_word, 8, 23, (uint64_t)c);
 
             c = getc(in);
             assert(c != -1 && (row < height && col < width));
-            *curr_word = Bitpack_newu(*curr_word, 8, 16, (uint64_t)c);
+            *curr_word = Bitpack_newu(*curr_word, 8, 15, (uint64_t)c);
 
             c = getc(in);
             assert(c != -1 && (row < height && col < width));
-            *curr_word = Bitpack_newu(*curr_word, 8, 8, (uint64_t)c);
+            *curr_word = Bitpack_newu(*curr_word, 8, 7, (uint64_t)c);
 
             c = getc(in);
             assert(c != -1 && (row < height && col < width));
