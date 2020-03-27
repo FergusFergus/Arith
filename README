@@ -1,0 +1,68 @@
+Madeleine Street (mstree03) and Fergus Ferguson (mfergu05)
+COMP40 Homework 4: Arith
+
++++++++++++++++++++++++++++++ Acknowledgements ++++++++++++++++++++++++++++++++
+
+Danielle (TA) for helping us with ppmdiff.
+Adam, Joe, Alex and , (TA's), for sitting with us during an 8 hour bug
+and giving us loads of helpful advice and emotional support.
+Micheal (TA) for his help fixing out input and output issues, as well as
+reassuring us about the endianness of our solution!
+
++++++++++++++++++++++++++++++++ Architecture ++++++++++++++++++++++++++++++++++
+
+Our compressor works by moving between 5 states. We wrote 4 of these (the
+5th is Pnm_ppm so that was provided). Each state is represented by a .h and a
+.c file.
+
+Pnm_ppm: Provided by the comp40 staff. Used to represent the decompressed
+         pnm/ppm image.
+
+YPbPr.h/c: A struct with methods that represents a ppm in component video
+           color space. This module is capable of being created from a Pnm_ppm
+           and creating a Pnm_ppm based on a YPbPr image.
+
+PixBlock.h/c: A struct with methods that represents a component video image
+              where pixels have been split into groups of 4. Each group of 4
+              pixels contains all four Y values and the average Pb and Pr
+              values. This module can be created base on YPbPr_img and can
+              create YPbPr_imgs.
+
+DCTransform.h/c: A struct with methods that represents an image where a
+                 discrete cosine transform has been performed on groups of 4
+                 pixels. The values stored in the individual blocks have all
+                 been quantized. It can be create and be created based on a
+                 PixBlocked_img.
+
+CodedImg.h.c: A struct with methods that represents an image through DCTBlock
+              structs that have been bitpacked into uint64_ts. It can create/
+              be created based on DCT_imgs, and print or read in coded Images
+              in the correct format.
+              NOTE: each code word is only 32 bits, but they are stored as
+              uint64ts.
+
+bitpack.c: Implementation of bitpack.h. Used in CodedImg.h
+
+40image.c: Implementation of the compressor and decompressor main!
+
+Other included files: Makefile and README
+
+A NOTE ABOUT STRUCTS: Each of our four modules includes two structs. One struct
+    represents an entire image in the current format. This one is defined in
+    the .c file. The other is a struct defined in the .h file and represents
+    a single pixel/block that makes up an image in the current format.
+    We have structured things like this because we liked the way pnm.h worked
+    and so modeled it on that.
+
+another note: Some of our files contain commented out test functions. This is
+              one example of our testing process, though the bulk of our tests
+              took place in separate unit testing files not included in our
+              submission.
+
+++++++++++++++++++++++++++++++ Implementation +++++++++++++++++++++++++++++++++
+
+To the best of our knowledge, we have correctly implemented all of the pieces
+of this assignment as stated in the spec.
+
+Time spent analyzing the problem: 5
+Time spent solving problems after the analysis: 30
